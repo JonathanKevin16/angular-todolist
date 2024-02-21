@@ -1,0 +1,18 @@
+<div class="flex flex-col items-center mx-auto gap-4 mb-4">
+  <label for="text" class="block text-lg font-mono font-extrabold text-gray-900 dark:text-gray-300 grow">Isi Dengan List Aktifitas Anda</label>
+  <form class="flex mb-3 w-4/5" (submit)="$event.preventDefault(); addTask(newTask)">
+    <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="List Harian Anda" #newTask #required>
+    <button type="submit" class="text-white text-md font-semibold font-mono bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-sky-300 dark:focus:ring-sky-800 shadow-lg shadow-sky-500/50 dark:shadow-lg dark:shadow-sky-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Submit</button>
+  </form>
+
+  <div *ngIf="tasks" class="grid grid-cols-1 auto-rows-min gap-2 w-screen">
+    <div *ngFor="let item of tasks; let id = index" class="bg-white w-4/5 mx-auto p-2 grid grid-cols-[0.2fr_3fr_0.2fr] rounded-lg">
+      <input type="checkbox" class="rounded-sm" [checked]="item.completed" (change)="changeTaskStatus(id)">
+      <div>
+        {{item.name}} <br>
+        <a [routerLink]="['taskdetail', id]" class="underline">Details of Task</a>
+      </div>
+      <Button class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 rounded-lg" (click)="deleteTask(id)">X</Button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="flex flex-col items-center mx-auto gap-4 mb-4">
+  <label for="text" class="block text-lg font-mono font-extrabold text-gray-900 dark:text-gray-300 grow">Rincian Tugas</label>
+</div>
+
+<div class="flex bg-white mx-auto w-4/5">
+  Pekerjaan Hari Ini   &nbsp;   :{{task[taskId].name}} <br/>
+  Dibuat Tanggal      &nbsp;   :{{task[taskId].created_at}} <br/>
+  Diupdate Tanggal    &nbsp;   :{{task[taskId].updated_at}} <br/>
+  Status Perkerjaan   &nbsp;   :{{task[taskId].completed}} <br/>
+</div>
+<br>
+<a class="w-4/5 mx-40" routerLink="/todolist">
+  <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+    Back</button>
+</a>
